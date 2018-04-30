@@ -31,7 +31,7 @@
   align-items: center;
   padding: 3rem;
   margin-bottom: 3rem;
-  border-radius: 1rem;
+  border-radius: 2.5rem;
   background-color: rgba(255, 255, 255, 0.26);
   width: 100%;
   height: auto;
@@ -74,9 +74,14 @@
   font-size: 1.4rem;
 }
 
+/* TODO: create a text indent that doesn't mess up images in mobile mode */
+/* .blog-entry div p::first-word {
+  text-indent: 4rem;
+} */
+
 
 hr {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   width: 100%;
   color: rgba(211, 211, 211, 0.281);
   opacity: .5;
@@ -86,36 +91,41 @@ hr:last-child {
   width: 40%;
 }
 
-.widgets {
+.blog-sidebar {
   order: 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  margin: 3rem 0;
-  padding: .5rem;
+  margin: 0rem 0 5rem 0rem;
+  padding: .75rem;
   background-color: rgba(255, 255, 255, 0.616);
   color: #ff0080;
   width: 20rem;
-  border-radius: 1rem;
-  height: 20%;
-  border: .1rem solid rgba(211, 211, 211, 0.664);
+  border-radius: 2.5rem;
+  height: auto;
+  /* border: .1rem solid rgba(211, 211, 211, 0.664); */
   font-size: 1.4rem;
-  box-shadow: 0px 0px 10px -3px #888888;
+  box-shadow: 0px 0px 20px #888888;
   
 }
 
-.categories {
+.blog-sidebar hr {
+  width: 75%;
+  align-self: center;
+}
+
+.blog-sidebar-widget {
   width: 100%;
   padding: .5rem;
 }
 
-.widgets h4 {
+.blog-sidebar-widget h4 {
   align-self: center;
   font-size: 2rem;
 }
 
-.categories ul {
+.blog-sidebar-widget ul {
   margin-top: .5rem;
 }
 
@@ -124,7 +134,31 @@ li {
   list-style: none;
 }
 
+.blog-img-hidden {
+  position: fixed;
+  top: 50%;
+  right:50%;
+  transform: translateX(48.5%) translateY(-50%);
+  width: 90%;
+  height: auto;
+  box-shadow: 0px 0px 20px #000000;
+  z-index: 5;
+}
 
+#hidden-img-close {
+  color: white;
+  display: none;
+  position: fixed;
+  top: 10.5%;
+  right: 8.5%;
+  transform: translateX(48.5%) translateY(-50%);
+  z-index: 6;
+}
+
+#hidden-img-close:hover {
+  cursor: pointer;
+  color: #888888;
+}
 
 /* blog post layout and components */
 
@@ -150,14 +184,15 @@ li {
   .float-right-50 {
     width: 50%;
     float: right;
-    margin: 0 0rem 1rem 1rem;
+    margin: 0 0rem 1rem 1.5rem;
   }
   
   .float-left-50 {
     width: 50%;
     float: left;
-    margin: 1rem 1rem 0 0;
+    margin: 1rem 1.5rem 0 0;
   }
+  
 
   /* .blog-container {
     flex-direction: row;
@@ -170,6 +205,10 @@ li {
     margin-right: 6rem;
   } */
 
+  .blogs {
+    margin-bottom: 3rem;
+  }
+
   .blog-entry:first-child {
     width: 80%;
     margin-right: 16rem;
@@ -180,12 +219,24 @@ li {
     text-indent: 4rem;
   }
 
-  .widgets {
+  .blog-sidebar {
+      margin: 3rem 0;
       width: 15%;
-      height: 15rem;
+      height: auto;
       position: absolute;
       top: -10px;
       right: 1.5rem;
+  }
+
+  .blog-img-hidden {
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    right:50%;
+    transform: translateX(48.5%) translateY(-50%);
+    width: 90%;
+    height: auto;
+    box-shadow: 0px 0px 20px #000000;
   }
 
 }
